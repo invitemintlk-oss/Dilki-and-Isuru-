@@ -5,7 +5,6 @@ import { MapPin, Calendar, Clock } from "lucide-react";
 import { INVITATION, GOOGLE_SCRIPT_URL as googleScriptUrl, BACKGROUND_MUSIC as backgroundMusic } from "./invitation";
 import { getGuestNameFromUrl } from "./guest";
 
-type Wish = { name: string; message: string; timestamp?: string };
 
 const preImagePath = (fileName: string) => `/pre/${fileName.replaceAll(" ", "%20")}`;
 
@@ -315,7 +314,6 @@ export default function WeddingInvitation() {
 
   const [wishForm, setWishForm] = useState({ name: "", message: "" });
   const [wishStatus, setWishStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const [wishes, setWishes] = useState<Wish[]>([]);
 
   const audioRef = React.useRef<HTMLAudioElement>(null);
   const introVideoRef = React.useRef<HTMLVideoElement>(null);
@@ -339,23 +337,6 @@ export default function WeddingInvitation() {
       throw new Error(result.message || "Request failed");
     }
   };
-
-  const loadWishes = React.useCallback(async () => {
-    if (!googleScriptUrl) return;
-    try {
-      const response = await fetch(`${googleScriptUrl}?action=wishes&limit=30`);
-      const result = await response.json();
-      if (result && result.ok && Array.isArray(result.wishes)) {
-        setWishes(result.wishes);
-      }
-    } catch {
-      /* wishes wall is optional — ignore */
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isOpened) loadWishes();
-  }, [isOpened, loadWishes]);
 
   const handleRsvpSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -399,7 +380,6 @@ export default function WeddingInvitation() {
       await submitToGoogleSheet({ action: "wish", name, message, invitedAs: guestName || "" });
       setWishStatus("success");
       setWishForm({ name: "", message: "" });
-      setWishes((prev) => [{ name, message }, ...prev]);
     } catch {
       setWishStatus("error");
     }
@@ -1169,20 +1149,6 @@ export default function WeddingInvitation() {
                     <span className="relative">{wishStatus === "sending" ? "යවමින්..." : "සුබ පැතුම යවන්න"}</span>
                   </button>
                 </motion.form>
-
-                {wishes.length > 0 && (
-                  <div className="mt-12 w-full max-w-[820px] grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[560px] overflow-y-auto px-1 py-1">
-                    {wishes.map((wish, i) => (
-                      <div
-                        key={`${wish.name}-${i}`}
-                        className="rounded-2xl border border-gold/30 bg-ivory/80 px-5 py-4 text-left shadow-[0_14px_30px_-22px_rgba(138,109,64,0.5)]"
-                      >
-                        <p className="text-lg text-ink/80 leading-relaxed whitespace-pre-line">“{wish.message}”</p>
-                        <p className="mt-3 text-base text-gold-deep">— {wish.name}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
               </div>
             </section>
 
