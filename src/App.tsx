@@ -724,23 +724,30 @@ export default function WeddingInvitation() {
                 transition={{ duration: 1.4, ease: EASE_SILK }}
                 className="relative w-[78vw] max-w-[400px] mx-auto"
               >
-                <div className="absolute -inset-3 md:-inset-4 rounded-t-full border border-gold/35 pointer-events-none" />
-                <div className="relative rounded-t-full p-2 md:p-2.5 bg-gradient-to-b from-gold-soft via-gold to-gold-deep shadow-[0_40px_80px_-35px_rgba(138,100,36,0.6)]">
-                  <div className="rounded-t-full overflow-hidden bg-ivory aspect-[1000/1360]">
-                    <img
-                      src={COUPLE_PORTRAIT}
-                      alt={`${INVITATION.couple.brideEn} & ${INVITATION.couple.groomEn}`}
-                      loading="lazy"
-                      draggable={false}
-                      className="w-full h-full object-cover object-top select-none"
-                    />
+                {/* Arch frame — the lotus ornament is anchored to its bottom edge */}
+                <div className="relative">
+                  <div className="absolute -inset-3 md:-inset-4 rounded-t-full border border-gold/35 pointer-events-none" />
+                  <div className="relative rounded-t-full p-2 md:p-2.5 bg-gradient-to-b from-gold-soft via-gold to-gold-deep shadow-[0_40px_80px_-35px_rgba(138,100,36,0.6)]">
+                    <div className="rounded-t-full overflow-hidden bg-ivory aspect-[1000/1360]">
+                      <img
+                        src={COUPLE_PORTRAIT}
+                        alt={`${INVITATION.couple.brideEn} & ${INVITATION.couple.groomEn}`}
+                        loading="lazy"
+                        draggable={false}
+                        className="w-full h-full object-cover object-top select-none"
+                      />
+                    </div>
                   </div>
+                  <LotusImage
+                    src={LOTUS.trio}
+                    className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 w-44 md:w-52 drop-shadow-[0_6px_14px_rgba(138,100,36,0.3)]"
+                  />
                 </div>
-                <LotusImage src={LOTUS.trio} className="absolute -bottom-8 md:-bottom-10 left-1/2 -translate-x-1/2 w-40 md:w-48 drop-shadow-[0_6px_14px_rgba(138,100,36,0.3)]" />
-                <figcaption className="mt-14 md:mt-16 text-center">
-                  <span className="text-3xl md:text-4xl text-foil">
-                    {INVITATION.couple.bride} <span className="font-display text-gold mx-1">&amp;</span> {INVITATION.couple.groom}
-                  </span>
+
+                <figcaption className="mt-16 md:mt-20 flex items-baseline justify-center gap-3 md:gap-4 text-center">
+                  <span className="inline-block text-4xl md:text-5xl leading-[1.35] py-1 text-foil">{INVITATION.couple.bride}</span>
+                  <span className="font-display text-3xl md:text-4xl text-gold">&amp;</span>
+                  <span className="inline-block text-4xl md:text-5xl leading-[1.35] py-1 text-foil">{INVITATION.couple.groom}</span>
                 </figcaption>
               </motion.figure>
             </section>
