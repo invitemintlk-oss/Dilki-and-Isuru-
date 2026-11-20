@@ -2,13 +2,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gold: #b08a3e;
-  --color-gold-deep: #8a6424;
-  --color-gold-soft: #e6c98a;
-  --color-gold-pale: #f4e6c4;
-  --color-ink: #3f3320;
-  --color-cocoa: #153a28;
-  --color-ivory: #ffffff;
+  /* Palette from the stage décor: champagne gold, warm ivory, sage greenery */
+  --color-gold: #b39563;
+  --color-gold-deep: #8a6d40;
+  --color-gold-soft: #e3d0a8;
+  --color-gold-pale: #f4ebdb;
+  --color-ink: #4b3d2d;
+  --color-cocoa: #4d5b3f;
+  --color-ivory: #fffdf9;
   --font-display: "Cormorant Garamond", "Abhaya Libre", serif;
 
   --font-serif: "Abhaya Libre", serif;
@@ -19,9 +20,11 @@
   --font-playball: "Abhaya Libre", cursive;
   --font-sinhala: "Abhaya Libre";
 
-  --color-sage: #87937a;
+  --color-sage: #7a8b5f;
+  --color-sage-deep: #5b6b45;
+  --color-champagne: #ece0cc;
   /* Soft Sunset Red */
-  --color-paper: #ffffff;
+  --color-paper: #fdf9f2;
 
   --color-theme-50: #fff5f2;
   --color-theme-100: #ffe8e1;
@@ -40,7 +43,7 @@
 
 :root {
   background-color: var(--color-paper);
-  color: #3f3320;
+  color: #4b3d2d;
   font-family: var(--font-sinhala);
 }
 
@@ -111,7 +114,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(176, 138, 62, 0.5);
+  background: rgba(179, 149, 99, 0.5);
   border-radius: 10px;
 }
 
@@ -136,11 +139,11 @@ body {
 }
 
 .text-foil {
-  background-image: linear-gradient(100deg, #7a5619 0%, #b08a3e 20%, #e9cf8f 38%, #a07a32 52%, #7a5619 70%, #b08a3e 86%, #7a5619 100%);
+  background-image: linear-gradient(100deg, #7d6237 0%, #b39563 20%, #ead9b4 38%, #a2844f 52%, #7d6237 70%, #b39563 86%, #7d6237 100%);
 }
 
 .text-foil-light {
-  background-image: linear-gradient(100deg, #c9a24d 0%, #f6e3ad 22%, #fff6dc 36%, #d6b064 52%, #c9a24d 70%, #f6e3ad 86%, #c9a24d 100%);
+  background-image: linear-gradient(100deg, #cdb07c 0%, #f1e4c8 22%, #fffaf0 36%, #d5bb8a 52%, #cdb07c 70%, #f1e4c8 86%, #cdb07c 100%);
 }
 
 @keyframes foil-shine {
@@ -152,7 +155,7 @@ body {
 /* Image art tinted gold: the PNG is used as a mask, colour comes from currentColor */
 .gold-art {
   background:
-    linear-gradient(125deg, rgba(255, 255, 255, 0) 25%, rgba(255, 244, 214, 0.6) 48%, rgba(255, 255, 255, 0) 70%),
+    linear-gradient(125deg, rgba(255, 255, 255, 0) 25%, rgba(255, 248, 232, 0.6) 48%, rgba(255, 255, 255, 0) 70%),
     currentColor;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
@@ -188,18 +191,18 @@ body {
 .paper-card {
   background:
     radial-gradient(ellipse at top, rgba(255, 255, 255, 0.9), transparent 70%),
-    linear-gradient(180deg, #ffffff 0%, #fdf8ee 100%);
+    linear-gradient(180deg, #fffdf9 0%, #f8f0e3 100%);
 }
 
 .btn-gold {
-  background: linear-gradient(135deg, #8a6424 0%, #b08a3e 45%, #c9a24d 60%, #8a6424 100%);
+  background: linear-gradient(135deg, #8a6d40 0%, #b39563 45%, #c9ad7c 60%, #8a6d40 100%);
   background-size: 200% 200%;
   transition: background-position 0.8s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-gold:hover {
   background-position: 100% 0;
-  box-shadow: 0 14px 30px -12px rgba(138, 100, 36, 0.6);
+  box-shadow: 0 14px 30px -12px rgba(138, 109, 64, 0.55);
 }
 
 @keyframes spin-slow {
@@ -230,33 +233,33 @@ textarea::placeholder {
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
-/* Opening screen: original gold & cream theme (matches the intro video) */
+/* Opening screen: champagne & warm beige (matches the intro video and stage décor) */
 .theme-gold {
-  --color-gold: #b08a3e;
-  --color-gold-deep: #8a6424;
-  --color-gold-soft: #e6c98a;
-  --color-gold-pale: #f4e6c4;
-  --color-ink: #4a3418;
-  --color-ivory: #fffaf0;
-  --color-paper: #f8efdf;
-  color: #4a3418;
+  --color-gold: #b39563;
+  --color-gold-deep: #8a6d40;
+  --color-gold-soft: #e3d0a8;
+  --color-gold-pale: #f4ebdb;
+  --color-ink: #4b3d2d;
+  --color-ivory: #fffdf9;
+  --color-paper: #f5ede1;
+  color: #4b3d2d;
 }
 
 .theme-gold .text-foil {
-  background-image: linear-gradient(100deg, #7a5619 0%, #b08a3e 20%, #e9cf8f 38%, #a07a32 52%, #7a5619 70%, #b08a3e 86%, #7a5619 100%);
+  background-image: linear-gradient(100deg, #7d6237 0%, #b39563 20%, #ead9b4 38%, #a2844f 52%, #7d6237 70%, #b39563 86%, #7d6237 100%);
 }
 
 .theme-gold .gold-hairline {
-  background: linear-gradient(90deg, transparent, #b08a3e 50%, transparent);
+  background: linear-gradient(90deg, transparent, #b39563 50%, transparent);
 }
 
 .theme-gold .btn-gold {
-  background: linear-gradient(135deg, #8a6424 0%, #b08a3e 45%, #c9a24d 60%, #8a6424 100%);
+  background: linear-gradient(135deg, #8a6d40 0%, #b39563 45%, #c9ad7c 60%, #8a6d40 100%);
   background-size: 200% 200%;
 }
 
 .theme-gold .btn-gold:hover {
-  box-shadow: 0 14px 30px -12px rgba(138, 100, 36, 0.6);
+  box-shadow: 0 14px 30px -12px rgba(138, 109, 64, 0.55);
 }
 
 /* Admin page scrolls on its own (html/body overflow is hidden for the invitation) */

@@ -18,20 +18,16 @@ const PRE_IMAGES = [
 ];
 
 const EASE_SILK = [0.16, 1, 0.3, 1] as const;
-const HERO_FRAME = "/images/hero-lotus-frame-white.jpg";
+const HERO_FRAME = "/images/champagne/hero-lotus-frame.jpg";
 const COUPLE_PORTRAIT = "/images/couple-nilame.jpg";
 
 const LOTUS = {
   stem: "/images/lotus-stem.png",
-  swoosh: "/images/lotus-swoosh.png",
-  trio: "/images/lotus-trio.png",
-  ground: "/images/lotus-ground.png",
+  swoosh: "/images/champagne/lotus-swoosh.png",
+  trio: "/images/champagne/lotus-trio.png",
+  ground: "/images/champagne/lotus-ground.png",
 };
 
-/* Opening screen keeps the original gold theme to match the intro video */
-const LOTUS_GOLD = {
-  trio: "/images/lotus-trio.png",
-};
 
 /* ------------------------------------------------------------------ */
 /*  Ornaments                                                          */
@@ -98,7 +94,7 @@ function LotusImage({ src, className = "" }: { src: string; className?: string }
 
 function SectionLabel({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <span className={`font-display italic text-lg tracking-[0.25em] ${light ? "text-gold-soft/80" : "text-gold-deep/70"}`}>
+    <span className={`font-display italic text-lg tracking-[0.25em] ${light ? "text-gold-soft/80" : "text-sage-deep/80"}`}>
       {children}
     </span>
   );
@@ -134,7 +130,7 @@ function FloatingPetals() {
       return;
     }
 
-    const colors = ["#c9a24d", "#d8b56a", "#b08a3e", "#e6c98a", "#2f7a55"];
+    const colors = ["#c9ad7c", "#e3d0a8", "#fffaf0", "#b39563", "#8fa070"];
     const petalCount = isMobile ? 9 : 16;
 
     const newPetals = Array.from({ length: petalCount }).map((_, i) => ({
@@ -156,7 +152,7 @@ function FloatingPetals() {
       {petals.map((petal) => (
         <motion.div
           key={petal.id}
-          className="absolute drop-shadow-[0_2px_6px_rgba(138,100,36,0.25)]"
+          className="absolute drop-shadow-[0_2px_6px_rgba(138,109,64,0.25)]"
           style={{ color: petal.color }}
           initial={{
             x: `${petal.x}vw`,
@@ -278,7 +274,7 @@ export function Gallery() {
             {marqueeImages.map((img, i) => (
               <div
                 key={`${img}-${i}`}
-                className="relative w-[280px] h-[380px] md:w-[350px] md:h-[480px] shrink-0 overflow-hidden rounded-t-full p-2 border border-gold/40 bg-ivory shadow-[0_20px_50px_-15px_rgba(138,100,36,0.25)] group"
+                className="relative w-[280px] h-[380px] md:w-[350px] md:h-[480px] shrink-0 overflow-hidden rounded-t-full p-2 border border-gold/40 bg-ivory shadow-[0_20px_50px_-15px_rgba(138,109,64,0.25)] group"
               >
                 <img
                   src={img}
@@ -481,7 +477,7 @@ export default function WeddingInvitation() {
             </video>
 
             {!hasStarted && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center z-[120] bg-[radial-gradient(ellipse_at_center,rgba(255,250,238,0.9)_0%,rgba(255,250,238,0.6)_50%,rgba(255,250,238,0.2)_85%)] px-6">
+              <div className="absolute inset-0 flex flex-col items-center justify-center z-[120] bg-[radial-gradient(ellipse_at_center,rgba(253,248,240,0.9)_0%,rgba(253,248,240,0.6)_50%,rgba(253,248,240,0.2)_85%)] px-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -491,7 +487,7 @@ export default function WeddingInvitation() {
                   <div className="absolute -inset-x-6 -inset-y-10 md:-inset-x-16 md:-inset-y-14 border border-gold/40 rounded-t-[999px] pointer-events-none" />
                   <div className="absolute -inset-x-4 -inset-y-8 md:-inset-x-14 md:-inset-y-12 border border-gold/20 rounded-t-[999px] pointer-events-none" />
 
-                  <LotusImage src={LOTUS_GOLD.trio} className="w-44 md:w-56 mb-5 drop-shadow-[0_6px_14px_rgba(138,100,36,0.25)]" />
+                  <LotusImage src={LOTUS.trio} className="w-44 md:w-56 mb-5 drop-shadow-[0_6px_14px_rgba(138,109,64,0.25)]" />
 
                   <SectionLabel>The Wedding Invitation</SectionLabel>
 
@@ -617,7 +613,7 @@ export default function WeddingInvitation() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               onClick={() => setIsOpened(false)}
-              className="fixed top-5 right-5 z-50 bg-ivory/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-gold/40 shadow-[0_8px_24px_-12px_rgba(138,100,36,0.5)] text-gold-deep text-base hover:bg-ivory transition-colors"
+              className="fixed top-5 right-5 z-50 bg-ivory/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-gold/40 shadow-[0_8px_24px_-12px_rgba(138,109,64,0.5)] text-gold-deep text-base hover:bg-ivory transition-colors"
             >
               වසා දමන්න
             </motion.button>
@@ -727,7 +723,7 @@ export default function WeddingInvitation() {
                 {/* Arch frame — the lotus ornament is anchored to its bottom edge */}
                 <div className="relative">
                   <div className="absolute -inset-3 md:-inset-4 rounded-t-full border border-gold/35 pointer-events-none" />
-                  <div className="relative rounded-t-full p-2 md:p-2.5 bg-gradient-to-b from-gold-soft via-gold to-gold-deep shadow-[0_40px_80px_-35px_rgba(138,100,36,0.6)]">
+                  <div className="relative rounded-t-full p-2 md:p-2.5 bg-gradient-to-b from-gold-soft via-gold to-gold-deep shadow-[0_40px_80px_-35px_rgba(138,109,64,0.6)]">
                     <div className="rounded-t-full overflow-hidden bg-ivory aspect-[1000/1360]">
                       <img
                         src={COUPLE_PORTRAIT}
@@ -740,7 +736,7 @@ export default function WeddingInvitation() {
                   </div>
                   <LotusImage
                     src={LOTUS.trio}
-                    className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 w-44 md:w-52 drop-shadow-[0_6px_14px_rgba(138,100,36,0.3)]"
+                    className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 w-44 md:w-52 drop-shadow-[0_6px_14px_rgba(138,109,64,0.3)]"
                   />
                 </div>
 
@@ -758,8 +754,8 @@ export default function WeddingInvitation() {
               className="relative pt-16 md:pt-28 pb-16 md:pb-32 w-full flex flex-col items-center overflow-hidden"
             >
               {/* Lotus stems framing both sides */}
-              <GoldArt src={LOTUS.stem} className="absolute left-0 top-10 md:top-16 w-20 h-[11.5rem] sm:w-28 sm:h-64 md:w-44 md:h-[25rem] text-gold/45 -translate-x-1/4 md:translate-x-0" />
-              <GoldArt src={LOTUS.stem} className="absolute right-0 top-10 md:top-16 w-20 h-[11.5rem] sm:w-28 sm:h-64 md:w-44 md:h-[25rem] text-gold/45 -scale-x-100 translate-x-1/4 md:translate-x-0" />
+              <GoldArt src={LOTUS.stem} className="absolute left-0 top-10 md:top-16 w-20 h-[11.5rem] sm:w-28 sm:h-64 md:w-44 md:h-[25rem] text-sage/45 -translate-x-1/4 md:translate-x-0" />
+              <GoldArt src={LOTUS.stem} className="absolute right-0 top-10 md:top-16 w-20 h-[11.5rem] sm:w-28 sm:h-64 md:w-44 md:h-[25rem] text-sage/45 -scale-x-100 translate-x-1/4 md:translate-x-0" />
               <div className="max-w-[1100px] w-full flex flex-col items-center text-center relative z-20 px-5 md:px-6">
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
@@ -806,7 +802,7 @@ export default function WeddingInvitation() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.2, ease: EASE_SILK }}
-                  className="relative z-20 w-full max-w-[960px] paper-card rounded-[2rem] border border-gold/40 shadow-[0_40px_80px_-40px_rgba(138,100,36,0.45)] px-6 py-12 md:px-14 md:py-16"
+                  className="relative z-20 w-full max-w-[960px] paper-card rounded-[2rem] border border-gold/40 shadow-[0_40px_80px_-40px_rgba(138,109,64,0.45)] px-6 py-12 md:px-14 md:py-16"
                 >
                   <div className="absolute inset-2.5 md:inset-3.5 rounded-[1.6rem] border border-gold/20 pointer-events-none" />
                   <FramedCorners inset="inset-4 md:inset-6" size="w-10 h-10 md:w-14 md:h-14" />
@@ -886,7 +882,7 @@ export default function WeddingInvitation() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.2, ease: EASE_SILK }}
-                  className="relative w-full paper-card rounded-[2rem] border border-gold/40 shadow-[0_40px_80px_-40px_rgba(138,100,36,0.45)] p-3 md:p-4"
+                  className="relative w-full paper-card rounded-[2rem] border border-gold/40 shadow-[0_40px_80px_-40px_rgba(138,109,64,0.45)] p-3 md:p-4"
                 >
                   <div className="absolute inset-1.5 md:inset-2 rounded-[1.75rem] border border-gold/20 pointer-events-none" />
 
@@ -903,7 +899,7 @@ export default function WeddingInvitation() {
                   </div>
 
                   <div className="relative px-4 pt-8 pb-6 md:pt-10 md:pb-8 flex flex-col items-center">
-                    <span className="relative -mt-14 md:-mt-16 mb-4 w-14 h-14 rounded-full border border-gold/50 bg-ivory flex items-center justify-center shadow-[0_8px_20px_-10px_rgba(138,100,36,0.6)]">
+                    <span className="relative -mt-14 md:-mt-16 mb-4 w-14 h-14 rounded-full border border-gold/50 bg-ivory flex items-center justify-center shadow-[0_8px_20px_-10px_rgba(138,109,64,0.6)]">
                       <MapPin className="w-5 h-5 text-gold-deep" strokeWidth={1.4} />
                     </span>
                     <h3 className="text-2xl md:text-3xl text-ink leading-snug">{INVITATION.venue.name}</h3>
@@ -926,7 +922,7 @@ export default function WeddingInvitation() {
 
             {/* ---------- SAVE THE DATE ---------- */}
             <section className="relative py-20 md:py-40 bg-cocoa flex flex-col items-center overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,162,77,0.18),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(201,162,77,0.12),transparent_60%)] pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(205,176,124,0.18),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(205,176,124,0.12),transparent_60%)] pointer-events-none" />
               <div className="absolute inset-3 md:inset-6 border border-gold-soft/15 pointer-events-none" />
               <div className="absolute inset-4 md:inset-8 border border-gold-soft/10 pointer-events-none" />
 
@@ -938,7 +934,7 @@ export default function WeddingInvitation() {
                   transition={{ duration: 1.2, ease: EASE_SILK }}
                   className="relative mb-4 flex flex-col items-center"
                 >
-                  <LotusImage src={LOTUS.trio} className="w-40 md:w-52 mb-6 drop-shadow-[0_4px_18px_rgba(201,162,77,0.35)]" />
+                  <LotusImage src={LOTUS.trio} className="w-40 md:w-52 mb-6 drop-shadow-[0_4px_18px_rgba(205,176,124,0.35)]" />
                   <SectionLabel light>Save the Date</SectionLabel>
 
                   <h2 className="mt-5 text-4xl md:text-6xl text-foil-light leading-tight">
@@ -999,7 +995,7 @@ export default function WeddingInvitation() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.1, ease: EASE_SILK }}
                   viewport={{ once: true }}
-                  className="relative w-full max-w-[620px] paper-card rounded-t-[999px] rounded-b-[2rem] border border-gold/40 shadow-[0_40px_100px_-40px_rgba(138,100,36,0.45)] px-6 pt-24 pb-10 md:px-14 md:pt-32 md:pb-14"
+                  className="relative w-full max-w-[620px] paper-card rounded-t-[999px] rounded-b-[2rem] border border-gold/40 shadow-[0_40px_100px_-40px_rgba(138,109,64,0.45)] px-6 pt-24 pb-10 md:px-14 md:pt-32 md:pb-14"
                 >
                   <div className="absolute inset-2.5 md:inset-3.5 rounded-t-[999px] rounded-b-[1.6rem] border border-gold/20 pointer-events-none" />
                   <LotusMark className="absolute top-10 md:top-12 left-1/2 -translate-x-1/2 w-14 h-10 md:w-16 md:h-12 text-gold" />
@@ -1036,7 +1032,7 @@ export default function WeddingInvitation() {
                             }}
                             aria-pressed={choice.active}
                             className={`w-full flex items-center gap-4 text-left rounded-2xl border px-5 py-4 md:py-5 text-lg leading-relaxed transition-all duration-300 active:scale-[0.99] ${choice.active
-                              ? "border-gold bg-gold/10 text-ink shadow-[0_10px_30px_-18px_rgba(138,100,36,0.7)]"
+                              ? "border-gold bg-gold/10 text-ink shadow-[0_10px_30px_-18px_rgba(138,109,64,0.7)]"
                               : "border-gold/25 bg-ivory/60 text-ink/70 hover:border-gold/50"
                               }`}
                           >
@@ -1122,7 +1118,7 @@ export default function WeddingInvitation() {
                   viewport={{ once: true }}
                   transition={{ duration: 1.1, ease: EASE_SILK }}
                   onSubmit={handleWishSubmit}
-                  className="relative w-full max-w-[620px] paper-card rounded-[2rem] border border-gold/40 shadow-[0_40px_100px_-40px_rgba(138,100,36,0.35)] px-6 py-10 md:px-12 md:py-12 space-y-7"
+                  className="relative w-full max-w-[620px] paper-card rounded-[2rem] border border-gold/40 shadow-[0_40px_100px_-40px_rgba(138,109,64,0.35)] px-6 py-10 md:px-12 md:py-12 space-y-7"
                 >
                   <div className="absolute inset-2.5 md:inset-3.5 rounded-[1.6rem] border border-gold/20 pointer-events-none" />
 
@@ -1179,7 +1175,7 @@ export default function WeddingInvitation() {
                     {wishes.map((wish, i) => (
                       <div
                         key={`${wish.name}-${i}`}
-                        className="rounded-2xl border border-gold/30 bg-ivory/80 px-5 py-4 text-left shadow-[0_14px_30px_-22px_rgba(138,100,36,0.5)]"
+                        className="rounded-2xl border border-gold/30 bg-ivory/80 px-5 py-4 text-left shadow-[0_14px_30px_-22px_rgba(138,109,64,0.5)]"
                       >
                         <p className="text-lg text-ink/80 leading-relaxed whitespace-pre-line">“{wish.message}”</p>
                         <p className="mt-3 text-base text-gold-deep">— {wish.name}</p>
@@ -1261,7 +1257,7 @@ export default function WeddingInvitation() {
         animate={{ opacity: 1, scale: 1 }}
         onClick={toggleMusic}
         aria-label={isPlaying ? "Pause music" : "Play music"}
-        className="fixed bottom-6 right-6 z-[60] w-12 h-12 rounded-full bg-ivory/90 backdrop-blur-md border border-gold/50 text-gold-deep shadow-[0_10px_30px_-12px_rgba(138,100,36,0.6)] flex items-center justify-center hover:bg-ivory transition-colors"
+        className="fixed bottom-6 right-6 z-[60] w-12 h-12 rounded-full bg-ivory/90 backdrop-blur-md border border-gold/50 text-gold-deep shadow-[0_10px_30px_-12px_rgba(138,109,64,0.6)] flex items-center justify-center hover:bg-ivory transition-colors"
       >
         <span
           className={`absolute -inset-1.5 rounded-full border border-dashed border-gold/50 ${isPlaying ? "animate-[spin-slow_12s_linear_infinite]" : "opacity-0"}`}
