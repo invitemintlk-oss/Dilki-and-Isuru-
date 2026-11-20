@@ -52,11 +52,11 @@ function OrnamentDivider({ className = "", light = false }: { className?: string
   const tone = light ? "text-gold-soft" : "text-gold";
   return (
     <div className={`flex items-center justify-center gap-3 md:gap-4 ${tone} ${className}`} aria-hidden="true">
-      <span className="h-px w-12 md:w-24 bg-gradient-to-r from-transparent to-current opacity-60" />
-      <span className="w-1.5 h-1.5 rotate-45 border border-current opacity-70" />
+      <span className="h-px w-12 md:w-24 bg-gradient-to-r from-transparent to-sage" />
+      <span className="w-1.5 h-1.5 rotate-45 bg-spring/80" />
       <LotusMark className="w-10 h-6 md:w-12 md:h-8" />
-      <span className="w-1.5 h-1.5 rotate-45 border border-current opacity-70" />
-      <span className="h-px w-12 md:w-24 bg-gradient-to-l from-transparent to-current opacity-60" />
+      <span className="w-1.5 h-1.5 rotate-45 bg-spring/80" />
+      <span className="h-px w-12 md:w-24 bg-gradient-to-l from-transparent to-sage" />
     </div>
   );
 }
@@ -130,7 +130,7 @@ function FloatingPetals() {
       return;
     }
 
-    const colors = ["#c9ad7c", "#e3d0a8", "#fffaf0", "#b39563", "#8fa070"];
+    const colors = ["#ffffff", "#d9e5c5", "#a8c581", "#e3d0a8", "#8bbf45"];
     const petalCount = isMobile ? 9 : 16;
 
     const newPetals = Array.from({ length: petalCount }).map((_, i) => ({
@@ -754,8 +754,8 @@ export default function WeddingInvitation() {
               className="relative pt-16 md:pt-28 pb-16 md:pb-32 w-full flex flex-col items-center overflow-hidden"
             >
               {/* Lotus stems framing both sides */}
-              <GoldArt src={LOTUS.stem} className="absolute left-0 top-10 md:top-16 w-20 h-[11.5rem] sm:w-28 sm:h-64 md:w-44 md:h-[25rem] text-sage/45 -translate-x-1/4 md:translate-x-0" />
-              <GoldArt src={LOTUS.stem} className="absolute right-0 top-10 md:top-16 w-20 h-[11.5rem] sm:w-28 sm:h-64 md:w-44 md:h-[25rem] text-sage/45 -scale-x-100 translate-x-1/4 md:translate-x-0" />
+              <GoldArt src={LOTUS.stem} className="absolute left-0 top-10 md:top-16 w-20 h-[11.5rem] sm:w-28 sm:h-64 md:w-44 md:h-[25rem] text-sage/70 -translate-x-1/4 md:translate-x-0" />
+              <GoldArt src={LOTUS.stem} className="absolute right-0 top-10 md:top-16 w-20 h-[11.5rem] sm:w-28 sm:h-64 md:w-44 md:h-[25rem] text-sage/70 -scale-x-100 translate-x-1/4 md:translate-x-0" />
               <div className="max-w-[1100px] w-full flex flex-col items-center text-center relative z-20 px-5 md:px-6">
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
@@ -836,9 +836,9 @@ export default function WeddingInvitation() {
                           transition={{ delay: 0.2 + i * 0.15, duration: 1, ease: EASE_SILK }}
                           className={`flex flex-col items-center text-center px-2 md:px-8 ${i > 0 ? "md:border-l md:border-gold/25" : ""}`}
                         >
-                          <span className="relative w-14 h-14 rounded-full border border-gold/50 flex items-center justify-center bg-ivory">
+                          <span className="relative w-14 h-14 rounded-full border border-sage flex items-center justify-center bg-mint/40">
                             <span className="absolute -inset-1.5 rounded-full border border-gold/15" />
-                            <Icon className="w-5 h-5 text-gold-deep" strokeWidth={1.4} />
+                            <Icon className="w-5 h-5 text-sage-deep" strokeWidth={1.4} />
                           </span>
                           <span className="mt-5 text-lg md:text-base text-gold-deep/70">{item.label}</span>
                           <span className="mt-2 h-px w-8 bg-gold/40" />
@@ -976,7 +976,7 @@ export default function WeddingInvitation() {
             </section>
 
             {/* ---------- RSVP ---------- */}
-            <section className="relative py-20 md:py-40 bg-transparent flex flex-col items-center overflow-hidden">
+            <section className="section-mint relative py-20 md:py-40 flex flex-col items-center overflow-hidden">
               <div className="container mx-auto px-4 max-w-4xl flex flex-col items-center relative z-10 w-full">
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
@@ -1032,7 +1032,7 @@ export default function WeddingInvitation() {
                             }}
                             aria-pressed={choice.active}
                             className={`w-full flex items-center gap-4 text-left rounded-2xl border px-5 py-4 md:py-5 text-lg leading-relaxed transition-all duration-300 active:scale-[0.99] ${choice.active
-                              ? "border-gold bg-gold/10 text-ink shadow-[0_10px_30px_-18px_rgba(138,109,64,0.7)]"
+                              ? "border-sage bg-mint/50 text-ink shadow-[0_10px_30px_-18px_rgba(138,109,64,0.7)]"
                               : "border-gold/25 bg-ivory/60 text-ink/70 hover:border-gold/50"
                               }`}
                           >

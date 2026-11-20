@@ -2,14 +2,15 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette from the stage décor: champagne gold, warm ivory, sage greenery */
+  /* Spring Green & White palette (#8BBF45 · #FFFFFF · #A8C581 · #D9E5C5 · #F5F0E8)
+     with champagne gold as the metallic accent */
   --color-gold: #b39563;
   --color-gold-deep: #8a6d40;
   --color-gold-soft: #e3d0a8;
   --color-gold-pale: #f4ebdb;
-  --color-ink: #4b3d2d;
-  --color-cocoa: #4d5b3f;
-  --color-ivory: #fffdf9;
+  --color-ink: #3b4232;
+  --color-cocoa: #3f5a2a;
+  --color-ivory: #ffffff;
   --font-display: "Cormorant Garamond", "Abhaya Libre", serif;
 
   --font-serif: "Abhaya Libre", serif;
@@ -20,11 +21,13 @@
   --font-playball: "Abhaya Libre", cursive;
   --font-sinhala: "Abhaya Libre";
 
-  --color-sage: #7a8b5f;
-  --color-sage-deep: #5b6b45;
+  --color-sage: #a8c581;
+  --color-sage-deep: #5c7a37;
+  --color-spring: #8bbf45;
+  --color-mint: #d9e5c5;
   --color-champagne: #ece0cc;
   /* Soft Sunset Red */
-  --color-paper: #fdf9f2;
+  --color-paper: #f5f0e8;
 
   --color-theme-50: #fff5f2;
   --color-theme-100: #ffe8e1;
@@ -43,7 +46,7 @@
 
 :root {
   background-color: var(--color-paper);
-  color: #4b3d2d;
+  color: #3b4232;
   font-family: var(--font-sinhala);
 }
 
@@ -114,7 +117,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(179, 149, 99, 0.5);
+  background: rgba(168, 197, 129, 0.7);
   border-radius: 10px;
 }
 
@@ -190,8 +193,8 @@ body {
 
 .paper-card {
   background:
-    radial-gradient(ellipse at top, rgba(255, 255, 255, 0.9), transparent 70%),
-    linear-gradient(180deg, #fffdf9 0%, #f8f0e3 100%);
+    radial-gradient(ellipse at top, rgba(255, 255, 255, 1), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #fbfaf5 100%);
 }
 
 .btn-gold {
@@ -234,6 +237,16 @@ textarea::placeholder {
 }
 
 /* Opening screen: champagne & warm beige (matches the intro video and stage décor) */
+/* Soft spring-green wash for alternating sections */
+.section-mint {
+  background: linear-gradient(180deg, transparent 0%, rgba(217, 229, 197, 0.45) 18%, rgba(217, 229, 197, 0.45) 82%, transparent 100%);
+}
+
+::selection {
+  background: #d9e5c5;
+  color: #2f3a24;
+}
+
 .theme-gold {
   --color-gold: #b39563;
   --color-gold-deep: #8a6d40;
@@ -241,7 +254,7 @@ textarea::placeholder {
   --color-gold-pale: #f4ebdb;
   --color-ink: #4b3d2d;
   --color-ivory: #fffdf9;
-  --color-paper: #f5ede1;
+  --color-paper: #f5f0e8;
   color: #4b3d2d;
 }
 
